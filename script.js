@@ -7,10 +7,15 @@ var lower = false;
 var upper = false;
 var numbers = false;
 var specialChar = false;
+var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"
+var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numbersAvailable = "1234567890"
+var specailCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~"
+var whatToUse = "";
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  // var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -51,4 +56,17 @@ function generateButtonClicked() {
   ) {
     alert("must select at least one");
   }
+  if (lower) {
+    whatToUse = whatToUse + lower;
+  }
+  if (upper) {
+    whatToUse = whatToUse + upper;
+  }
+  if (numbers) {
+    whatToUse = whatToUse + numbersAvailable
+  }
+  if (specialChar) {
+    whatToUse += specailCharacters
+  }
+  console.log(whatToUse)
 }
