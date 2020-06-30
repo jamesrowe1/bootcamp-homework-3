@@ -77,8 +77,13 @@ function generateButtonClicked() {
   }
   console.log(whatToUse)
 
+  //go as long as the length requested
   for (var i = 0; i < pwLength; i++) {
+    //get a randomNumber between 0 and the length of whattoUse
     var randomNumber = Math.random() * whatToUse.length;
+    //the new password is itself + 
+    //the location in the whatToUse string 
+    //corresponding to the random Number just created
     newPassword += whatToUse.substring(randomNumber - 1, randomNumber)
   }
   console.log(newPassword);
@@ -86,4 +91,14 @@ function generateButtonClicked() {
   //blank out whatToUse at end of function
   whatToUse = "";
   newPassword = "";
+}
+
+
+function copyToClip() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+
+  document.execCommand("copy");
+  alert("Copied the password " + copyText.value);
 }

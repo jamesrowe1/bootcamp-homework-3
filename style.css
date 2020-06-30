@@ -118,6 +118,11 @@ button[disabled] {
   overflow: hidden;
 }
 
+#copybutton {
+  font-size: small;
+  background-color: blue;
+  float: right;
+}
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
