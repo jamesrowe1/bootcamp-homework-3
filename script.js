@@ -12,10 +12,11 @@ var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbersAvailable = "1234567890"
 var specailCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~"
 var whatToUse = "";
+var newPassword = "";
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -23,15 +24,20 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
+console.log(parseInt(pwLength));
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
   pwLength = prompt("How long would you like the password to be?");
   // make sure parselength is between 8 and 128
   if (parseInt(pwLength) < 8) {
     alert("Too short. Must be between 8 and 128 characters");
+    return;
   } else if (parseInt(pwLength) > 128) {
     alert("Too long. Must be between 8 and 128 characters");
+    return;
+  } else if (isNaN(parseInt(pwLength))) {
+    alert("Must be a number between 8 and 128");
+    return;
   }
 
   //choosing character types
@@ -55,12 +61,13 @@ function generateButtonClicked() {
     specialChar === false
   ) {
     alert("must select at least one");
+    return;
   }
   if (lower) {
-    whatToUse = whatToUse + lower;
+    whatToUse = whatToUse + lowerCaseLetters;
   }
   if (upper) {
-    whatToUse = whatToUse + upper;
+    whatToUse = whatToUse + upperCaseLetters;
   }
   if (numbers) {
     whatToUse = whatToUse + numbersAvailable
@@ -69,4 +76,14 @@ function generateButtonClicked() {
     whatToUse += specailCharacters
   }
   console.log(whatToUse)
+
+  for (var i = 0; i < pwLength; i++) {
+    var randomNumber = Math.random() * whatToUse.length;
+    newPassword += whatToUse.substring(randomNumber - 1, randomNumber)
+  }
+  console.log(newPassword);
+  document.getElementById("password").innerHTML = newPassword;
+  //blank out whatToUse at end of function
+  whatToUse = "";
+  newPassword = "";
 }
