@@ -100,5 +100,10 @@ function copyToClip() {
   copyText.setSelectionRange(0, 99999)
 
   document.execCommand("copy");
-  alert("Copied the password " + copyText.value);
+  if (copyText.Value !== "") {
+    alert("Copied the password " + copyText.value);
+    console.log(copyText.value);
+  } else {
+    alert("No password to copy");
+  }
 }

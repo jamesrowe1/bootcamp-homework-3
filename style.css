@@ -126,6 +126,7 @@ button[disabled] {
   background-color: blue;
   float: right;
   padding: 10px;
+  margin: 5px;
 }
 @media (max-width: 690px) {
   .btn {
