@@ -15,18 +15,20 @@ var whatToUse = "";
 var newPassword = "";
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
+//   passwordText.value = password;
+// }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
 console.log(parseInt(pwLength));
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
+  var passwordText = document.querySelector("#password");
+
   pwLength = prompt("How long would you like the password to be?");
   // make sure parselength is between 8 and 128
   if (parseInt(pwLength) < 8) {
@@ -100,7 +102,7 @@ function copyToClip() {
   copyText.setSelectionRange(0, 99999)
 
   document.execCommand("copy");
-  if (copyText.Value !== "") {
+  if (copyText.value) {
     alert("Copied the password " + copyText.value);
     console.log(copyText.value);
   } else {
