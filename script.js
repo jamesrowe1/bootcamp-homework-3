@@ -15,7 +15,6 @@ var whatToUse = "";
 var newPassword = "";
 
 
-console.log(parseInt(pwLength));
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
 
