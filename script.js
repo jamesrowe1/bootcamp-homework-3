@@ -13,6 +13,8 @@ var whatToUse = [];
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
 
+  //clear box
+  document.getElementById("password").innerHTML = "";
   var passwordText = document.querySelector("#password");
   var newPassword = "";
   var pwLength = prompt("How long would you like the password to be?");
