@@ -16,6 +16,10 @@ function generateButtonClicked() {
   var passwordText = document.querySelector("#password");
   var newPassword = "";
   var pwLength = prompt("How long would you like the password to be?");
+
+  //clear box
+  document.getElementById("password").innerHTML = "";
+
   // make sure parselength is between 8 and 128
   if (parseInt(pwLength) < 8) {
     alert("Too short. Must be between 8 and 128 characters");
