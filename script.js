@@ -1,24 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//variables I've created regarding choices
-var pwLength;
-var lower = false;
-var upper = false;
-var numbers = false;
-var specialChar = false;
+//arrays with the different character types
 var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var numbersAvailable = "1234567890".split("");
-var specailCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~".split("");
+var specialCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~".split("");
+
+//the array that will be built
 var whatToUse = [];
-var newPassword = "";
+
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
-  console.log(this.whatToUse)
-  var passwordText = document.querySelector("#password");
 
-  pwLength = prompt("How long would you like the password to be?");
+  var passwordText = document.querySelector("#password");
+  var newPassword = "";
+  var pwLength = prompt("How long would you like the password to be?");
   // make sure parselength is between 8 and 128
   if (parseInt(pwLength) < 8) {
     alert("Too short. Must be between 8 and 128 characters");
@@ -33,10 +30,10 @@ function generateButtonClicked() {
 
   //choosing character types
   alert("Choose Character types");
-  lower = confirm("Would you like to include lower case letters?");
-  upper = confirm("Would you like to include upper case letters?");
-  numbers = confirm("Would you like to include numbers?");
-  specialChar = confirm("Would you like to include special characters?");
+  var lower = confirm("Would you like to include lower case letters?");
+  var upper = confirm("Would you like to include upper case letters?");
+  var numbers = confirm("Would you like to include numbers?");
+  var specialChar = confirm("Would you like to include special characters?");
 
 
   //making sure at least 1 char type was selected
@@ -46,50 +43,58 @@ function generateButtonClicked() {
     numbers === false &&
     specialChar === false
   ) {
-    alert("must select at least one");
+    alert("You must select at least one character type.");
     return;
   }
 
   //add elements of lowerCaseLetters array to whatToUse array
   if (lower) {
     addToArray(lowerCaseLetters);
+    //add a lower case letter to newPassword to ensure there is at least 1
     newPassword += randomizer(lowerCaseLetters);
-    pwLength--;
-  }
-  //add elements of upperCaseLetters array to whatToUse array
-  if (upper) {
-    addToArray(upperCaseLetters);
-    newPassword += randomizer(upperCaseLetters);
-    pwLength--;
-  }
-  //add elements of numbersAvailable array to whatToUse array
-  if (numbers) {
-    addToArray(numbersAvailable);
-    newPassword += randomizer(numbersAvailable);
-    pwLength--;
-  }
-  //add elements of specailCharacters array to whatToUse array
-  if (specialChar) {
-    addToArray(specailCharacters);
-    newPassword += randomizer(specailCharacters);
+    //lower pwLength by 1 as we just added something to the new password
     pwLength--;
   }
 
-  console.log(this.whatToUse);
+  //add elements of upperCaseLetters array to whatToUse array
+  if (upper) {
+    addToArray(upperCaseLetters);
+    //add an upper case letter to newPassword to ensure there is at least 1
+    newPassword += randomizer(upperCaseLetters);
+    //lower pwLength by 1 as we just added something to the new password
+    pwLength--;
+  }
+
+  //add elements of numbersAvailable array to whatToUse array
+  if (numbers) {
+    addToArray(numbersAvailable);
+    //add a number to newPassword to ensure there is at least 1
+    newPassword += randomizer(numbersAvailable);
+    //lower pwLength by 1 as we just added something to the new password
+    pwLength--;
+  }
+
+  //add elements of specialCharacters array to whatToUse array
+  if (specialChar) {
+    addToArray(specialCharacters);
+    //add a special character to newPassword to ensure there is at least 1
+    newPassword += randomizer(specialCharacters);
+    //lower pwLength by 1 as we just added something to the new password
+    pwLength--;
+  }
+
   //go as long as the length requested
   for (var i = 0; i < pwLength; i++) {
     //get a randomNumber between 0 and the length of whattoUse
     var randomNumber = Math.floor(Math.random() * whatToUse.length);
-    //the new password is itself + 
-    //the location in the whatToUse string 
-    //corresponding to the random Number just created
-    newPassword += this.whatToUse[randomNumber];
-
+    //the new password is itself + the location in the whatToUse string corresponding to the random Number just created
+    newPassword += whatToUse[randomNumber];
   }
 
+  //putting the new password in the new password box
   document.getElementById("password").innerHTML = newPassword;
-  //blank out whatToUse at end of function
-  this.whatToUse = []
+  //blank out whatToUse and the pw so they are fresh for next generate
+  whatToUse = [];
   newPassword = "";
 }
 
@@ -117,6 +122,6 @@ function randomizer(arr) {
 //function to add the arrays together
 function addToArray(arr) {
   for (i = 0; i < arr.length; i++) {
-    this.whatToUse.push(arr[i]);
+    whatToUse.push(arr[i]);
   }
 }
