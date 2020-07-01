@@ -14,10 +14,10 @@ You must have a working web browser.
 
 ## Built With
 
-Visual Studio Code
-JavaScript
-Chrome (especially the inspector)
-Hosted by Github
+- Visual Studio Code
+- JavaScript
+- Chrome (especially the inspector)
+- Hosted by Github
 
 ## Authors
 
