@@ -14,19 +14,11 @@ var specailCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~"
 var whatToUse = "";
 var newPassword = "";
 
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 console.log(parseInt(pwLength));
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
+
   var passwordText = document.querySelector("#password");
 
   pwLength = prompt("How long would you like the password to be?");
@@ -49,11 +41,6 @@ function generateButtonClicked() {
   numbers = confirm("Would you like to include numbers?");
   specialChar = confirm("Would you like to include special characters?");
 
-  console.log(pwLength);
-  console.log(lower);
-  console.log(upper);
-  console.log(numbers);
-  console.log(specialChar);
 
   //making sure at least 1 char type was selected
   if (
@@ -77,7 +64,6 @@ function generateButtonClicked() {
   if (specialChar) {
     whatToUse += specailCharacters
   }
-  console.log(whatToUse)
 
   //go as long as the length requested
   for (var i = 0; i < pwLength; i++) {
@@ -88,7 +74,7 @@ function generateButtonClicked() {
     //corresponding to the random Number just created
     newPassword += whatToUse.substring(randomNumber - 1, randomNumber)
   }
-  console.log(newPassword);
+  ;
   document.getElementById("password").innerHTML = newPassword;
   //blank out whatToUse at end of function
   whatToUse = "";
@@ -104,7 +90,7 @@ function copyToClip() {
   document.execCommand("copy");
   if (copyText.value) {
     alert("Copied the password " + copyText.value);
-    console.log(copyText.value);
+
   } else {
     alert("No password to copy");
   }
