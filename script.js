@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+var passwordText = document.querySelector("#password");
 //arrays with the different character types
 var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -10,17 +10,17 @@ var specialCharacters = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~".split("");
 //the array that will be built
 var whatToUse = [];
 
+
+
+
 //the function that occurs when the button is clicked
 function generateButtonClicked() {
 
   //clear box
-  document.getElementById("password").innerHTML = "";
-  var passwordText = document.querySelector("#password");
   var newPassword = "";
   var pwLength = prompt("How long would you like the password to be?");
 
-  //clear box
-  document.getElementById("password").innerHTML = "";
+
 
   // make sure parselength is between 8 and 128
   if (parseInt(pwLength) < 8) {
