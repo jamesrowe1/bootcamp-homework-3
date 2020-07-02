@@ -64,6 +64,13 @@ header {
 .card-body {
   min-height: 100px;
 }
+#password::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
 
 .card-footer {
   text-align: center;
