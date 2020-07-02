@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+h1 {
+  color: orange;
+  font-family: cursive;
+  text-shadow: 2px 2px black;
+}
 html,
 body,
 .wrapper {
@@ -14,11 +19,14 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: teal;
 }
 
 h2 {
   text-align: center;
+  color: white;
+  font-family: cursive;
+  text-shadow: 2px 2px black;
 }
 .wrapper {
   padding-top: 30px;
@@ -34,7 +42,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: purple;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
