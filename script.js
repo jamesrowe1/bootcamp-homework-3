@@ -19,17 +19,17 @@ function generateButtonClicked() {
   //clear box
   var newPassword = "";
   var pwLength = prompt("How long would you like the password to be?");
-
+  pwLength = Math.floor(pwLength);
 
 
   // make sure parselength is between 8 and 128
-  if (parseInt(pwLength) < 8) {
+  if (pwLength < 8) {
     alert("Too short. Must be between 8 and 128 characters");
     return;
-  } else if (parseInt(pwLength) > 128) {
+  } else if (pwLength > 128) {
     alert("Too long. Must be between 8 and 128 characters");
     return;
-  } else if (isNaN(parseInt(pwLength))) {
+  } else if (isNaN(pwLength)) {
     alert("Must be a number between 8 and 128");
     return;
   }
